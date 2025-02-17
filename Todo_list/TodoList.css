@@ -1,5 +1,5 @@
 .main_box{
- width: 400px;
+ width: 500px;
  height: 130px;
  transition: height 0.3s;
 }
@@ -12,7 +12,7 @@
     align-items: center;
 }
 #input{
-    width: 300px;
+    width: 400px;
     height: 34px; 
     border: 1px solid #ccc; 
     border-radius: 4px 0 0 4px; 
@@ -34,4 +34,27 @@
 }
 #add_btn:hover{
     background-color: rgb(217, 240, 240);
+}
+.list_box ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0px 17px 0px 20px;
+}
+
+.list_box li {
+    list-style-type: none;
+    padding: 10px;
+    margin: -1px 0; 
+    border: 1px solid #ccc;
+    background-color: white; 
+}
+
+/* 첫 번째 li 요소의 상단 마진은 제거하지 않음 */
+.list_box li:first-child {
+    margin-top: 10px;
+}
+
+/* 마지막 li 요소의 하단 마진은 제거하지 않음 */
+.list_box li:last-child {
+    margin-bottom: 0;
 }
