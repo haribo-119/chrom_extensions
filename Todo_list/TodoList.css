@@ -1,6 +1,6 @@
 .main_box{
  width: 500px;
- height: 130px;
+ height: auto;
  transition: height 0.3s;
 }
 #title{
@@ -47,6 +47,7 @@
     margin: -1px 0; 
     border: 1px solid #ccc;
     background-color: white; 
+    transition: all 0.3s ease; 
 }
 
 /* 첫 번째 li 요소의 상단 마진은 제거하지 않음 */
@@ -56,5 +57,5 @@
 
 /* 마지막 li 요소의 하단 마진은 제거하지 않음 */
 .list_box li:last-child {
-    margin-bottom: 0;
+    margin-bottom: 20px;
 }
