@@ -2,8 +2,10 @@ document.addEventListener('DOMContentLoaded',function(){
     const addBtn = document.getElementById('add_btn');
     const input = document.getElementById('input');
     const taskList = document.querySelector('.list_box ul'); 
-
+    
+    // removeTask();
     loadTasks();
+    
 
     if(addBtn){   
         addBtn.addEventListener('click',addTask);
@@ -26,7 +28,16 @@ document.addEventListener('DOMContentLoaded',function(){
             tasks.forEach(task => {
                 const li = document.createElement('li');
                 li.textContent = task;
-                
+
+                const div = document.createElement('div');
+                div.className ='tasks_btns';
+
+                const removeBtn = document.createElement('button');
+                removeBtn.className='remove_btn';
+                removeBtn.textContent ='x';
+
+                div.appendChild(removeBtn);
+                li.appendChild(div);
                 
                 taskList.appendChild(li);
             });
@@ -54,5 +65,14 @@ document.addEventListener('DOMContentLoaded',function(){
         }
     }
 
+
+    // 삭제
+    function removeTask(){
+           chrome.storage.sync.clear(function(result) {
+            
+          
+        });
+
+    }
 
 });

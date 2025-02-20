@@ -48,6 +48,24 @@
     border: 1px solid #ccc;
     background-color: white; 
     transition: all 0.3s ease; 
+    position: relative;
+}
+
+.tasks_btns .remove_btn{
+    background-color: blanchedalmond;
+    border: none;
+    cursor: pointer;
+    position: absolute;
+    left: 425px;
+    bottom: 12px;
+}
+.tasks_btns .import_btn{
+    background-color: blanchedalmond;
+    border: none;
+    cursor: pointer;
+    position: absolute;
+    left: 390px;
+    bottom: 12px;
 }
 
 /* 첫 번째 li 요소의 상단 마진은 제거하지 않음 */
