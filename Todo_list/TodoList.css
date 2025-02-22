@@ -13,7 +13,7 @@
 }
 #input{
     width: 400px;
-    height: 34px; 
+    height: 33px; 
     border: 1px solid #ccc; 
     border-radius: 4px 0 0 4px; 
     padding: 0 10px;
@@ -48,24 +48,19 @@
     border: 1px solid #ccc;
     background-color: white; 
     transition: all 0.3s ease; 
-    position: relative;
+    display: flex;
+    justify-content: space-between;
 }
 
 .tasks_btns .remove_btn{
     background-color: blanchedalmond;
     border: none;
-    cursor: pointer;
-    position: absolute;
-    left: 425px;
-    bottom: 12px;
+    cursor: pointer; 
 }
 .tasks_btns .import_btn{
     background-color: blanchedalmond;
     border: none;
     cursor: pointer;
-    position: absolute;
-    left: 390px;
-    bottom: 12px;
 }
 
 /* 첫 번째 li 요소의 상단 마진은 제거하지 않음 */

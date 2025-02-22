@@ -2,7 +2,8 @@ document.addEventListener('DOMContentLoaded',function(){
     const addBtn = document.getElementById('add_btn');
     const input = document.getElementById('input');
     const taskList = document.querySelector('.list_box ul'); 
-    
+    // const removeBtn = document.querySelector('.remove_btn');
+
     // removeTask();
     loadTasks();
     
@@ -20,14 +21,18 @@ document.addEventListener('DOMContentLoaded',function(){
         });
     }
 
+
     //불러오기
     function loadTasks() {
         chrome.storage.sync.get(['tasks'], function(result) {
             const tasks = result.tasks || [];
             taskList.innerHTML = ''; 
-            tasks.forEach(task => {
+            tasks.forEach((task,index) => {
                 const li = document.createElement('li');
-                li.textContent = task;
+                
+                const taskSpan = document.createElement('span');
+                taskSpan.textContent = task;
+                li.appendChild(taskSpan);
 
                 const div = document.createElement('div');
                 div.className ='tasks_btns';
@@ -36,16 +41,17 @@ document.addEventListener('DOMContentLoaded',function(){
                 removeBtn.className='remove_btn';
                 removeBtn.textContent ='x';
 
+                removeBtn.addEventListener('click',function(index){
+                    removeTask(index);
+                });
+
                 div.appendChild(removeBtn);
-                li.appendChild(div);
-                
+                li.appendChild(div);   
                 taskList.appendChild(li);
             });
         });
     }
 
-
- 
     //추가
     function addTask() {
         const input = document.getElementById('input');
@@ -67,12 +73,16 @@ document.addEventListener('DOMContentLoaded',function(){
 
 
     // 삭제
-    function removeTask(){
-           chrome.storage.sync.clear(function(result) {
-            
-          
-        });
+    function removeTask(index){
+           chrome.storage.sync.get(['tasks'], function(result){
+              const tasks = result.tasks || [];
+              tasks.splice(index,1);
+           
 
-    }
+           chrome.storage.sync.set({tasks: tasks}, function() {
+            loadTasks(); 
+           });
+        });
+     }
 
 });
